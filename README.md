@@ -1,39 +1,28 @@
-# random-static2.0
+开发计划
 
-This template should help get you started developing with Vue 3 in Vite.
+1、完成所有页面整体开发  
+2、完成页面与接口调试 通常情况下，vue3项目中如何集中路由并统一配置不同环境下使用的不同地址？
+3、完成登录页面后台与前台功能
 
-## Recommended IDE Setup
+4、标准化配置，接口定义等，并修改页面样式细节
+5、测试，打包部署
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+系统配置：
+页面配置
+管理员
+权限配置
+字段配置
+图片配置
+各页面提示语等显示内容配置
+系统管理：
+集成可视化nacos
+swagger日志
+系统监控等
 
-## Type Support for `.vue` Imports in TS
+后续样式补充优化
+切换主题
+切换背景
+切换头像 修改个人信息
+做logo
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
