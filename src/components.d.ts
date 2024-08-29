@@ -17,6 +17,7 @@ declare module 'vue' {
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
     ElFocusTrap: typeof import('element-plus/es')['ElFocusTrap']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
@@ -26,6 +27,7 @@ declare module 'vue' {
     ElLink: typeof import('element-plus/es')['ElLink']
     ElList: typeof import('element-plus/es')['ElList']
     ElListItem: typeof import('element-plus/es')['ElListItem']
+    ElLoading: typeof import('element-plus/es')['ElLoading']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
@@ -46,6 +48,7 @@ declare module 'vue' {
     Login: typeof import('./components/Login.vue')['default']
     LoginInput: typeof import('./components/LoginInput.vue')['default']
     Logos: typeof import('./components/Logos.vue')['default']
+    Pagination: typeof import('./components/layouts/Pagination.vue')['default']
     RandomConfig: typeof import('./components/business/RandomConfig.vue')['default']
     RandomHistory: typeof import('./components/business/RandomHistory.vue')['default']
     RandomStater: typeof import('./components/business/RandomStater.vue')['default']
@@ -53,5 +56,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SingUpCore: typeof import('./components/Login.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

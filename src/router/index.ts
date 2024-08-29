@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 
 import Index from "~/components/business/Index.vue";
 import RandomStater from "~/components/business/RandomStater.vue";
@@ -11,7 +11,7 @@ import LoginInput from "~/components/LoginInput.vue";
 import Forget from "~/components/Forget.vue";
 
 const router = createRouter({
-    history:createWebHistory(),
+    history:createWebHashHistory(),
     routes:[
         {
             path: '/',

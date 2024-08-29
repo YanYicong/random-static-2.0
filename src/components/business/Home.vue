@@ -34,8 +34,9 @@ const handleClose = (key: string, keyPath: string[]) => {
 }
 
 .content-container {
-  flex: 1; /* Take up remaining space */
-  padding: 1rem; /* Adjust as needed */
-  overflow: auto; /* Handle overflow if content is too large */
+  flex: 1;
+  padding: 1rem;
+  overflow: auto;
+  //background-image: url('/index_back.jpg');
 }
 </style>
