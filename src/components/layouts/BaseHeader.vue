@@ -14,13 +14,13 @@
       </button>
     </el-menu-item>
 
+<!--    <el-menu-item h="full" class="right-content">-->
+<!--      <button class="border-none w-full bg-transparent cursor-pointer" style="font-size: 12px" @click="useRandomBase">-->
+<!--        使用旧版-->
+<!--      </button>-->
+<!--    </el-menu-item>-->
     <el-menu-item h="full" class="right-content">
-      <button class="border-none w-full bg-transparent cursor-pointer" style="font-size: 12px" @click="useRandomBase">
-        使用旧版
-      </button>
-    </el-menu-item>
-    <el-menu-item h="full" class="right-content">
-      <button class="border-none w-full bg-transparent cursor-pointer" style="font-size: 12px">
+      <button class="border-none w-full bg-transparent cursor-pointer" style="font-size: 12px" @click="exit">
         注销
       </button>
     </el-menu-item>
@@ -30,6 +30,12 @@
 
 <script setup lang="ts">
 import { toggleDark } from "~/composables";
+import {logout} from "~/api/user";
+import router from "~/router";
+import {ElMessage} from "element-plus";
+import {startLoading, stopLoading} from "~/utils/utils";
+import {onMounted} from "vue";
+
 
 // 跳转到旧版
 const useRandomBase = () => {
@@ -38,6 +44,36 @@ const useRandomBase = () => {
   // 新页面
   window.open("http://localhost:8001/random/index.html", "_blank")
 }
+
+/**
+ * 注销
+ */
+const exit = async () => {
+  startLoading();
+
+  try {
+    const { data } = await logout({});
+    if (data.code === 200) {
+      localStorage.removeItem("token");
+      await router.push('/random/login');
+      // 跳转完成后再刷新页面
+      window.location.reload();
+    } else {
+      ElMessage.error(data.msg);
+    }
+  } catch (error) {
+    ElMessage.error("系统错误");
+  } finally {
+    stopLoading();
+  }
+};
+
+onMounted(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    router.push('/random/login');
+  }
+});
 
 </script>
 

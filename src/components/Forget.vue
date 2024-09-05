@@ -33,8 +33,11 @@ const confirmPassword = ref('');
 const email = ref('');
 const captcha = ref('');
 
+/**
+ * 重置密码
+ */
 const register = () => {
-  // 注册逻辑
+
 };
 </script>
 

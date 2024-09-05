@@ -319,7 +319,7 @@ const saveDetails = async (row) => {
     probabilityProportion : row.probabilityProportion,
   }
   try {
-    if(!regex.test(row.probabilityProportion)) {
+    if(!regex.test(row.probabilityProportion) && row.probabilityProportion != null) {
       ElMessage.error("请输入正确概率！(0-100整数)");
       return;
     }else {

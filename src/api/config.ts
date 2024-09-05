@@ -1,11 +1,11 @@
-import { service } from "~/utils/request"
+import axiosInstance from "~/utils/request"
 import {RANDOM_CONFIG} from "~/utils/globle";
 
 /**
  * 随机项组（新增/修改/逻辑删除/恢复）  无id为新增，有id无categoryName为删除/恢复，有id有categoryName为修改
  */
 export const changeRandomCategory = (param : any) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/randomCategory`,
         method: 'POST',
         data: param,
@@ -17,7 +17,7 @@ export const changeRandomCategory = (param : any) => {
  * @param param
  */
 export const changeRandomOption = (param : any) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/randomOption`,
         method: 'POST',
         data: param,
@@ -29,7 +29,7 @@ export const changeRandomOption = (param : any) => {
  * @param id
  */
 export const removeRandomCategory = (id : string) =>{
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/delRandomCategory/${id}`,
         method: 'DELETE',
         data: id,
@@ -41,7 +41,7 @@ export const removeRandomCategory = (id : string) =>{
  * @param id
  */
 export const removeRandomOption = (id : string) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/delRandomOption/${id}`,
         method: 'DELETE',
         data: id,
@@ -52,7 +52,7 @@ export const removeRandomOption = (id : string) => {
  * 恢复全部已删除
  */
 export const restoreAllDeleted = () => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/restoreAll`,
         method: 'POST',
     })
@@ -62,7 +62,7 @@ export const restoreAllDeleted = () => {
  * 物理删除所有逻辑删除
  */
 export const removeAll = () => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/killAll`,
         method: 'DELETE',
     })
@@ -72,7 +72,7 @@ export const removeAll = () => {
  * 获取导入模板
  */
 export const getUploadTemplate = () => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_CONFIG}/template`,
         method: 'GET',
         responseType: 'blob',
@@ -91,7 +91,7 @@ export const getUploadTemplate = () => {
 export const configUpload = (file: File) => {
   const formData = new FormData();
   formData.append('file', file);
-  return service({
+  return axiosInstance({
     url: `${RANDOM_CONFIG}/upload`,
     method: 'POST',
     data: formData,

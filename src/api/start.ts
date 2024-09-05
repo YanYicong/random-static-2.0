@@ -1,4 +1,4 @@
-import {service} from "~/utils/request";
+import axiosInstance from "~/utils/request";
 import {RANDOM_START} from "~/utils/globle";
 
 /**
@@ -6,7 +6,7 @@ import {RANDOM_START} from "~/utils/globle";
  * @param data
  */
 export const getCategoriesAndOptions = (params : any) => {
-    return service(
+    return axiosInstance(
         {
             url: `${RANDOM_START}/categories`,
             method: 'POST',
@@ -16,7 +16,7 @@ export const getCategoriesAndOptions = (params : any) => {
 };
 
 export const getRandomResultContext = (categoryId : string) => {
-    return service(
+    return axiosInstance(
         {
             url: `${RANDOM_START}/startRandom/${categoryId}`,
             method: 'POST',

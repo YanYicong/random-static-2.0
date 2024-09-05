@@ -18,9 +18,9 @@
         />
       </el-form-item>
       <el-form-item>
-          <el-button type="primary" @click="login" class="login-button" style="width: 234px">登录</el-button>
+          <el-button type="primary" @click="handleLogin" class="login-button" style="width: 234px">登录</el-button>
         <router-link to="/random/register">
-          <el-button type="default" class="login-button">注册</el-button>
+          <el-button type="default" class="login-button" >注册</el-button>
         </router-link>
         <router-link to="/random/forget">
           <el-button type="default" class="login-button">忘记密码</el-button>
@@ -30,20 +30,43 @@
   </el-card>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import {useRouter} from 'vue-router';
+import {ElMessage} from "element-plus";
+import {login} from "~/api/user";
+import {startLoading, stopLoading} from "~/utils/utils";
 const router = useRouter();
 
 const username = ref('');
 const password = ref('');
 const captcha = ref('');
 
+/**
+ * 登录
+ * @returns {Promise<void>}
+ */
+ const handleLogin = async () => {
+  startLoading();
+   const param = {
+     username : username.value,
+     password : password.value,
+   }
+   const { data, headers} = await login(param);
+   console.log(data);
+   // 将 token 保存到 localStorage
+   localStorage.setItem('token', headers['token']);
+   if(data.code == 200){
+     goIndex();
+   }else{
+     ElMessage.error(data.msg)
+   }
+   stopLoading();
+};
 
-  // 登录逻辑
-function login() {
-  router.push('/random/home/index'); // 使用 router.push 进行页面重定向
-}
+ const goIndex = () => {
+   router.push('/random/home/index');
+ }
 </script>
 
 <style scoped>

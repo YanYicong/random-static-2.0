@@ -5,9 +5,6 @@
         <el-input placeholder="用户名" v-model="username" class="register-test"/>
       </el-form-item>
       <el-form-item>
-        <el-input placeholder="用户ID" v-model="username" class="register-test"/>
-      </el-form-item>
-      <el-form-item>
         <el-input type="password" placeholder="密码" v-model="password" class="register-test"/>
       </el-form-item>
       <el-form-item>
@@ -24,7 +21,7 @@
         <router-link to="/random/login">
           <el-button type="default" class="register-button">取消</el-button>
         </router-link>
-          <el-button type="primary" @click="register" class="register-button">确认</el-button>
+          <el-button type="primary" @click="handleRegister" class="register-button">确认</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -32,6 +29,10 @@
 
 <script setup>
 import { ref } from 'vue';
+import axios from "axios";
+import {ElMessage} from "element-plus";
+import {register} from "~/api/user";
+import router from "~/router";
 
 const username = ref('');
 const password = ref('');
@@ -39,9 +40,38 @@ const confirmPassword = ref('');
 const email = ref('');
 const captcha = ref('');
 
-const register = () => {
-  // 注册逻辑
-};
+/**
+ * 注册
+ * @returns {Promise<void>}
+ */
+const handleRegister = async () => {
+  if (password.value !== confirmPassword.value) {
+    ElMessage.error("两次输入密码不一致");
+    return;
+  }
+  const param = {
+    username: username.value,
+    password: password.value,
+    email: email.value,
+  }
+      try {
+        const {data} = await register(param);
+        if(data.code == 200){
+          ElMessage.success(data.msg);
+          goLogin();
+        }else {
+          ElMessage.error(data.msg);
+        }
+        // 注册成功后可以直接跳转到登录页面
+      } catch (error) {
+        ElMessage.error(data.msg);
+      }
+    };
+
+const goLogin = () =>{
+  router.push('/random/login');
+}
+
 </script>
 
 <style scoped>

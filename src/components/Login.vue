@@ -12,10 +12,8 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import LoginInput from './LoginInput.vue';
-import Register from './Register.vue';
+<script setup lang="ts">
+
 </script>
 
 <style scoped>

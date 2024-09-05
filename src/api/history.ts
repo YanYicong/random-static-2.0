@@ -1,8 +1,8 @@
 import {RANDOM_HISTORY} from "~/utils/globle";
-import {service} from "~/utils/request";
+import axiosInstance from "~/utils/request";
 
 export const getRandomHistory = (params : any) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_HISTORY}/historyPage`,
         method: 'POST',
         data: params,
@@ -17,7 +17,7 @@ export const getRandomHistory = (params : any) => {
  * @param historyId
  */
 export const getRandomHistoryOption = (historyId : string) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_HISTORY}/historyOption/${historyId}`,
         method: 'GET',
         data: historyId,
@@ -29,7 +29,7 @@ export const getRandomHistoryOption = (historyId : string) => {
  * @param ids
  */
 export const delHistory = (ids : string[]) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_HISTORY}/historyClean`,
         method: 'DELETE',
         data: ids,
@@ -40,7 +40,7 @@ export const delHistory = (ids : string[]) => {
  * 清空历史记录
  */
 export const delAllHistory = () => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_HISTORY}/historyCleanAll`,
         method: 'DELETE',
     })
@@ -50,7 +50,7 @@ export const delAllHistory = () => {
  * 导出历史记录
  */
 export const getHistoryExport = (param:any) => {
-    return service({
+    return axiosInstance({
         url: `${RANDOM_HISTORY}/report`,
         method: 'GET',
         responseType: 'blob',
