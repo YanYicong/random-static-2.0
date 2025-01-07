@@ -52,16 +52,21 @@ const captcha = ref('');
      username : username.value,
      password : password.value,
    }
-   const { data, headers} = await login(param);
-   console.log(data);
-   // 将 token 保存到 localStorage
-   localStorage.setItem('token', headers['token']);
-   if(data.code == 200){
-     goIndex();
-   }else{
-     ElMessage.error(data.msg)
-   }
-   stopLoading();
+  try {
+    const {data, headers} = await login(param);
+    console.log(data);
+    // 将 token 保存到 localStorage
+    localStorage.setItem('token', headers['token']);
+    if (data.code == 200) {
+      goIndex();
+    } else {
+      ElMessage.error(data.msg)
+    }
+  } catch (error){
+    stopLoading();
+    ElMessage.error("登录异常");
+  }
+  stopLoading();
 };
 
  const goIndex = () => {

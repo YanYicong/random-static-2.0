@@ -8,7 +8,7 @@
       <input type="file" ref="fileInput" style="display: none" accept=".xlsx" @change="handleFileUpload" />
     </div>
 
-    <el-table :data="tableData" class="table">
+    <el-table :data="tableData">
       <el-table-column prop="categoryName" label="组名" />
       <el-table-column prop="createTime" label="创建时间" />
       <el-table-column prop="updateTime" label="修改时间"/>
@@ -666,9 +666,6 @@ onMounted(() => {
   margin-bottom: 20px;
 }
 
-.table {
-  width: 99%;
-}
 
 .table-container {
   max-height: 300px;
@@ -684,15 +681,16 @@ onMounted(() => {
 }
 .details-container {
   display: flex;
-  justify-content: flex-start;
-  padding-bottom: 30px;
-  padding-top: 30px;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 .details-input{
-  width: 200px;
+  width: 300px;
 }
 .details-add{
-  margin-left: 600px;
+  display: flex;
+  margin-right: 30px;
 }
 .danger {
   color: red;
