@@ -54,6 +54,7 @@ const exit = async () => {
   try {
     const { data } = await logout({});
     if (data.code === 200) {
+      //从localStorage中删除token
       localStorage.removeItem("token");
       await router.push('/random/login');
       // 跳转完成后再刷新页面
