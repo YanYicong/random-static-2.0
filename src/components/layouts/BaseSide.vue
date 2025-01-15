@@ -5,19 +5,19 @@
     @open="handleOpen"
     @close="handleClose"
   >
-    <RouterLink to="/random/home/randomStater">
+    <RouterLink to="/randomPage/home/randomStater">
       <el-menu-item index="2">
         <el-icon><icon-menu /></el-icon>
         <template #title>随机</template>
       </el-menu-item>
     </RouterLink>
-    <RouterLink to="/random/home/randomHistory">
+    <RouterLink to="/randomPage/home/randomHistory">
       <el-menu-item index="3">
         <el-icon><document /></el-icon>
         <template #title>历史</template>
       </el-menu-item>
     </RouterLink>
-    <RouterLink to="/random/home/randomConfig">
+    <RouterLink to="/randomPage/home/randomConfig">
       <el-menu-item index="4">
         <el-icon><setting /></el-icon>
         <template #title>配置</template>

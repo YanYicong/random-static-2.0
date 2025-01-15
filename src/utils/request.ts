@@ -8,7 +8,7 @@ axios.defaults.headers["Content-Type"] = "application/json";
 // 定义默认请求配置
 const axiosInstance = axios.create({
   // baseURL: '',
-  timeout: 10000,
+  timeout: 20000,
   withCredentials: true,
 });
 

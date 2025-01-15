@@ -22,6 +22,7 @@ export default defineConfig({
       proxy: {
         '/random' : {
           target: `http://127.0.0.1:8001`,
+          // target: `http://47.93.43.242:8001`,
           changeOrigin: true,
         },
       },

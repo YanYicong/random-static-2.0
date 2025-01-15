@@ -2,7 +2,7 @@
   <el-menu mode="vertical" class="header-container">
     <el-menu-item h="full" class="left-content">
       <router-link
-        to="/random/home/index"
+        to="/randomPage/home/index"
         style="display: block; height: 100%; width: 100%; text-decoration: none; font-size: 18px"
       >
       Random
@@ -56,7 +56,7 @@ const exit = async () => {
     if (data.code === 200) {
       //从localStorage中删除token
       localStorage.removeItem("token");
-      await router.push('/random/login');
+      await router.push('/randomPage/login');
       // 跳转完成后再刷新页面
       window.location.reload();
     } else {
@@ -72,7 +72,7 @@ const exit = async () => {
 onMounted(() => {
   const token = localStorage.getItem("token");
   if (!token) {
-    router.push('/random/login');
+    router.push('/randomPage/login');
   }
 });
 

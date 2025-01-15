@@ -19,10 +19,10 @@
       </el-form-item>
       <el-form-item>
           <el-button type="primary" @click="handleLogin" class="login-button" style="width: 234px">登录</el-button>
-        <router-link to="/random/register">
+        <router-link to="/randomPage/register">
           <el-button type="default" class="login-button" >注册</el-button>
         </router-link>
-        <router-link to="/random/forget">
+        <router-link to="/randomPage/forget">
           <el-button type="default" class="login-button">忘记密码</el-button>
         </router-link>
       </el-form-item>
@@ -83,13 +83,14 @@ refreshCaptcha();
     }
   } catch (error){
     stopLoading();
+    console.log(error);
     ElMessage.error("登录异常");
   }
   stopLoading();
 };
 
  const goIndex = () => {
-   router.push('/random/home/index');
+   router.push('/randomPage/home/index');
  }
 </script>
 

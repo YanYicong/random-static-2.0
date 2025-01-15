@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header>
+    <el-header class="top-heade">
       <el-input v-model="search.randomCategory" placeholder="组名" class="input-box"></el-input>
       <el-date-picker v-model="search.startTime" type="datetime" placeholder="起始时间" format="YYYY-MM-DD HH:mm:ss" value-format="YYYY-MM-DD HH:mm:ss" class="input-box"></el-date-picker>
       <el-date-picker v-model="search.endTime" type="datetime" placeholder="结束时间" format="YYYY-MM-DD HH:mm:ss" value-format="YYYY-MM-DD HH:mm:ss" class="input-box"></el-date-picker>
@@ -234,13 +234,15 @@ const handleSizeChange = (newPageSize: number) => {
 }
 
 .input-box {
-  margin-right: 15px;
+  margin-right: 10px;
   width: 200px;
+  height: 33px;
 }
 
 .button-box {
-  margin-right: 10px;
-  margin-left: 20px;
+  //margin-right: 10px;
+  //width: 100px;
+  //margin-left: 20px;
 }
 
 .el-main {
@@ -276,5 +278,12 @@ const handleSizeChange = (newPageSize: number) => {
 .el-dialog .el-dialog__body {
   max-height: 300px;
   overflow-y: auto;
+}
+
+.top-heade{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 </style>

@@ -15,46 +15,46 @@ const router = createRouter({
     routes:[
         {
             path: '/',
-            redirect: '/random/login', // 重定向到你希望的页面
+            redirect: '/randomPage/login', // 重定向到你希望的页面
         },
         {
-            path: '/random',
+            path: '/randomPage',
             component: Login,
             children:
             [
                 {
-                    path: '/random/register',
+                    path: '/randomPage/register',
                     component:Register,
                 },
                 {
-                    path:'/random/login',
+                    path:'/randomPage/login',
                     component:LoginInput,
                 },
                 {
-                    path: '/random/forget',
+                    path: '/randomPage/forget',
                     component:Forget,
                 }
             ]
         },
         {
-            path:'/random/home',
+            path:'/randomPage/home',
             component:Home,
             children :
             [
                 {
-                    path: '/random/home/index',
+                    path: '/randomPage/home/index',
                     component: Index,
                 },
                 {
-                    path:'/random/home/randomStater',
+                    path:'/randomPage/home/randomStater',
                     component:RandomStater,
                 },
                 {
-                    path:'/random/home/randomHistory',
+                    path:'/randomPage/home/randomHistory',
                     component:RandomHistory,
                 },
                 {
-                    path:'/random/home/randomConfig',
+                    path:'/randomPage/home/randomConfig',
                     component:RandomConfig,
                 }
             ]

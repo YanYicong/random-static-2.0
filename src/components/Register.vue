@@ -18,7 +18,7 @@
         <el-button type="info" @click="getCaptcha" :disabled="isButtonDisabled" class="register-auth">{{ buttonText }}</el-button>
       </el-form-item>
       <el-form-item>
-        <router-link to="/random/login">
+        <router-link to="/randomPage/login">
           <el-button type="default" class="register-button">取消</el-button>
         </router-link>
           <el-button type="primary" @click="handleRegister" class="register-button">确认</el-button>
@@ -116,7 +116,7 @@ const handleRegister = async () => {
 };
 
 const goLogin = () =>{
-  router.push('/random/login');
+  router.push('/randomPage/login');
 }
 
 </script>

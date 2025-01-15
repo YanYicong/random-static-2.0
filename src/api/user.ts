@@ -1,5 +1,9 @@
 import axiosInstance from "~/utils/request";
 
+/**
+ * 获取邮箱验证码
+ * @param email
+ */
 export const getEmailCaptcha = (email: string) => {
     return axiosInstance({
         url: `/random/api/emailCaptcha/${email}`,
@@ -8,6 +12,10 @@ export const getEmailCaptcha = (email: string) => {
     })
 }
 
+/**
+ * 登录
+ * @param params
+ */
 export const login = (params: { user: any, captchaParam: string }) => {
     return axiosInstance({
         url: `/random/api/login?captcha=${params.captchaParam}`,
@@ -16,7 +24,11 @@ export const login = (params: { user: any, captchaParam: string }) => {
     });
 };
 
-export const register = (params : {param: any, emailCaptcha: String}) => {
+/**
+ * 注册
+ * @param params
+ */
+export const register = (params : {param: any, emailCaptcha: string}) => {
     return axiosInstance(
         {
             url: `/random/api/register?emailCaptcha=${params.emailCaptcha}`,
@@ -25,6 +37,21 @@ export const register = (params : {param: any, emailCaptcha: String}) => {
         });
 };
 
+/**
+ * 修改密码
+ * @param params
+ */
+export const remakePassword = (params : {param: any, captcha: string}) => {
+    return axiosInstance({
+        url: `/random/api/remakePassword?emailCaptcha=${params.captcha}`,
+        method: 'POST',
+        data: params.param,
+    });
+}
+/**
+ * 注销
+ * @param params
+ */
 export const logout = (params : any) => {
     return axiosInstance(
         {
@@ -32,5 +59,5 @@ export const logout = (params : any) => {
             method: 'POST',
             data: params,
         }
-    )
+    );
 }
